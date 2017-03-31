@@ -350,21 +350,23 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
                     toTarget:(NSMutableAttributedString *)target
 {
     int insertedCharacters = 0;
-    
+
     NSUInteger level = 0;
     BPElement *inspectedElement = [[element parentElement] parentElement];
-    NSMutableString *indentation = [NSMutableString  string];
-    
+    NSString *tabChar = @"\t";
+    NSMutableString *indentation = tabChar.mutableCopy;
+
     while ([inspectedElement elementType] == BPList
            || [inspectedElement elementType] == BPListItem) {
         if ([inspectedElement elementType] == BPList) {
-            [indentation appendString:@"\t"];
+            [indentation appendString:tabChar];
             ++level;
         }
         
         inspectedElement = [inspectedElement parentElement];
     }
-    
+    //NSLog(@"Rendering list item element with text: %@", inspectedElement.text);
+
     UIColor *bulletColor;
     
     switch (level % 3) {
