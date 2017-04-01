@@ -365,7 +365,7 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
         
         inspectedElement = [inspectedElement parentElement];
     }
-    //NSLog(@"Rendering list item element with text: %@", inspectedElement.text);
+    NSLog(@"Rendering list item element with text: %@", inspectedElement);
 
     UIColor *bulletColor;
     
@@ -384,11 +384,14 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
     insertedCharacters += [self insertBulletIntoTarget:target color:bulletColor atIndex:effectiveRange.location];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-     [paragraphStyle setLineSpacing:[_displaySettings lineSpacingSmall]];
-    
+    paragraphStyle.lineSpacing = _displaySettings.lineSpacingSmall;
+    paragraphStyle.tabStops = @[];
+    paragraphStyle.defaultTabInterval = _displaySettings.bulletIndentation;
+
     NSDictionary *indentationAttributes = @{
                                             NSFontAttributeName : [UIFont systemFontOfSize:[_displaySettings bulletIndentation]],
-                                            NSParagraphStyleAttributeName : paragraphStyle
+                                            NSParagraphStyleAttributeName : paragraphStyle,
+                                            NSBackgroundColorAttributeName : UIColor.greenColor
                                             };
     
     NSAttributedString *attributedIndentation;
