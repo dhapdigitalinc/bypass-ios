@@ -29,6 +29,7 @@
 @property(nonatomic) UIFont *h6Font;
 
 @property(nonatomic) CGFloat bulletIndentation;
+@property(nonatomic) CGFloat bulletHeadIndentation;
 @property(nonatomic) CGFloat codeIndentation;
 @property(nonatomic) CGFloat quoteIndentation;
 @property(nonatomic) CGFloat lineSpacingSmall;
