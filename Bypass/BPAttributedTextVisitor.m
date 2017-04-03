@@ -387,6 +387,8 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
     paragraphStyle.lineSpacing = _displaySettings.lineSpacingSmall;
     paragraphStyle.tabStops = @[];
     paragraphStyle.defaultTabInterval = _displaySettings.bulletIndentation;
+    paragraphStyle.paragraphSpacing = _displaySettings.paragraphSpacing;
+    paragraphStyle.headIndent = (_displaySettings.bulletIndentation + 0.5f) * (level + 2);
 
     NSDictionary *indentationAttributes = @{
                                             NSFontAttributeName : [UIFont systemFontOfSize:[_displaySettings bulletIndentation]],
