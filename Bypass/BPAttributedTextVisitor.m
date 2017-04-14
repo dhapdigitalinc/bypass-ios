@@ -365,7 +365,6 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
         
         inspectedElement = [inspectedElement parentElement];
     }
-    NSLog(@"Rendering list item element with text: %@", inspectedElement);
 
     UIColor *bulletColor;
     
